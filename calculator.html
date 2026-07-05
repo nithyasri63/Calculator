@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <input type="text" id="input">
+            </div>
+            <div >
+                <button class="button1" onclick="calculation('1');">1</button>
+                <button class="button1" onclick="calculation(2);">2</button>
+                <button class="button1" onclick="calculation(3);">3</button>
+                <button class="button2" onclick="calculation('+');">+</button>
+            </div>
+            <div>
+                <button class="button1" onclick="calculation(4);">4</button>
+                <button class="button1"onclick="calculation(5);">5</button>
+                <button class="button1"onclick="calculation(6);">6</button>
+                <button class="button2" id="sub"onclick="calculation('-');">-</button>
+            </div>
+            <div>
+                <button class="button1" onclick="calculation(7);">7</button>
+                <button class="button1" onclick="calculation(8);">8</button>
+                <button class="button1" onclick="calculation(9);">9</button>
+                <button class="button2" onclick="calculation('*');">*</button>
+            </div>
+            <div>
+                 <button class="button1" onclick="calculation(0);">0</button>
+                <button class="button1" id="dot"onclick="calculation('.');">.</button>
+                <button class="button1"onclick="
+                display.value=eval(display.value);
+                 localStorage.setItem('store',display.value);">=</button>
+                <button class="button2"onclick="calculation('/');" >/</button>
+            </div>
+
+           
+            <button onclick="display.value='';" id="clear">C</button>
+
+        </div>
+        <script >
+        let display=document.getElementById('input');
+         display.value=localStorage.getItem('store')||'';
+         function calculation(parameter){
+            display.value+=parameter;
+            localStorage.setItem('store',display.value);
+         }
+        
+       </script>
+    </body>
+</html>
